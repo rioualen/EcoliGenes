@@ -16,3 +16,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat
+URL: https://github.com/rioualen/EcoliGenes
+BugReports: https://github.com/rioualen/EcoliGenes/issues
