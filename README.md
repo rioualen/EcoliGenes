@@ -48,5 +48,7 @@ get_coding(list_bnumbers)
 get_pseudo(list_bnumbers)
 get_phantom(list_bnumbers)
 ...
+
+get_coords(list_bnumbers)
 ```
 
