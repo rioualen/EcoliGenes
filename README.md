@@ -25,14 +25,28 @@ library(EcoliGenes)
 
 ## basic example data
 list_symbols <- c("lexA", "fruR")
-list_symbols_test <- c("lexA", "fruR", "test")
+list_symbols_test <- c("lexA", "fruR", "abcD")
 list_bnumbers <- c("b0001", "b4338")
-list_bnumbers_test <- c("b0001", "b4338", "test")
+list_bnumbers_test <- c("b0001", "b4338", "b8000")
 
 ## conversions
 bnumber_to_symbol(list_bnumbers)
 bnumber_to_symbol(list_bnumbers_test)
 symbol_to_bnumber(list_symbols)
 symbol_to_bnumber(list_symbols_test)
+```
+
+## To be added
+
+``` r
+
+is_valid(list_bnumbers)
+is_tf(list_bnumbers)
+
+get_tfs(list_bnumbers)
+get_coding(list_bnumbers)
+get_pseudo(list_bnumbers)
+get_phantom(list_bnumbers)
+...
 ```
 
