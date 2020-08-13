@@ -4,6 +4,8 @@
 #' @param list_bnumbers A character vector
 #'
 #' @return A character vector of same size as `list_bnumbers`
+#'
+#' @import tidyr
 #' @export
 #'
 #' @examples

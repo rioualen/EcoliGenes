@@ -4,6 +4,8 @@
 #' @param list_symbols A character vector
 #'
 #' @return A character vector of same size as `list_symbols`
+#'
+#' @import tidyr
 #' @export
 #'
 #' @examples

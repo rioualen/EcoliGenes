@@ -2,6 +2,7 @@
 #' @name read_master_gene_file
 #'
 #' @return a data.frame
+#'
 #' @export
 #'
 #' @examples
