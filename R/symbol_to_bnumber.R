@@ -20,5 +20,5 @@ symbol_to_bnumber <- function(list_symbols) {
 		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$BNUMBER[1]), gene_list_by_symbol_or_synonym[[x]]$BNUMBER[1], FALSE)
 	}
 	list_bnumbers <- sapply(list_symbols, FUN=convert_symbols)
-	list_bnumbers
+	unname(list_bnumbers)
 }
