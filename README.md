@@ -6,15 +6,12 @@
 
 The goal of EcoliGenes is to perform verifications and conversions of gene symbols and bnumbers. Indeed, we have noticed a number of discrepancies between the annotations in different databases of reference such as [RegulonDB](http://regulondb.ccg.unam.mx), [Ecocyc](https://ecocyc.org/), or [GenBank](https://www.ncbi.nlm.nih.gov/genbank/). We use an internal file with up-to-date gene symbols and bnumbers, as well as lists of synonyms commonly found accross databases, in order to uniformize gene sets for downstream treatments. 
 
-<!-- 
 ## Installation
 
-You can install the released version of EcoliGenes from [CRAN](https://CRAN.R-project.org) with:
-
 ``` r
-install.packages("EcoliGenes")
+remotes::install_github("rioualen/EcoliGenes")
 ```
- -->
+
  
 ## Example
 
@@ -39,14 +36,15 @@ symbol_to_bnumber(list_symbols_test)
 ## To be added
 
 ``` r
-
 is_valid(list_bnumbers)
 is_tf(list_bnumbers)
 
+show_synonyms(list_bnumbers)
+show_synonyms(list_symbols)
+
 get_tfs(list_bnumbers)
 get_coding(list_bnumbers)
-get_pseudo(list_bnumbers)
-get_phantom(list_bnumbers)
+get_sRNA(list_bnumbers)
 ...
 
 get_coords(list_bnumbers)
