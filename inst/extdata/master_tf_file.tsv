@@ -589,7 +589,7 @@ fis	b3261	nbp	3411271	3411567	+	b3261	-	EG10317	"Nbp,Fis"	fis	b3261	fis	b3261	fi
 frlR	b3375	yhfR	3504052	3504783	+	b3375	-	G7727	"YhfR,FrlR"	frlR	b3375	frlR	b3375	frlR	b3375	frlR	b3375	frlR	b3375
 cueR	b0487	"copR,ybbI"	513993	514400	+	b0487	-	G6263	"YbbI,CueR,CopR"	cueR	b0487	cueR	b0487	cueR	b0487	cueR	b0487	cueR	b0487
 nsrR	b4178	yjeB	4406190	4406615	+	b4178	-	EG11212	"YjeB,NsrR"	nsrR	b4178	nsrR	b4178	nsrR	b4178	nsrR	b4178	nsrR	b4178
-hns	b1237	"B1,H1,virR,topX,topS,pilG,osmZ,msyA,irk,hnsA,bglY,cur,drc,drdX,drs,fimG"	1292509	1292922	-	b1237	-	EG10457	"Irk,MsyA,PilG,TopS,TopX,VirR,Drs,Drc,Cur,Hns,FimG,DrdX,BglY,HnsA,OsmZ,H-NS"	hns	b1237	hns	b1237	hns	b1237	hns	b1237	hns	b1237
+hns	b1237	"B1,H1,virR,topX,topS,pilG,osmZ,msyA,irk,hnsA,bglY,cur,drc,drdX,drs,fimG"	1292509	1292922	-	b1237	-	EG10457	"Irk,MsyA,PilG,TopS,TopX,VirR,Drs,Drc,Cur,Hns,FimG,DrdX,BglY,HnsA,OsmZ,H-NS,HNS"	hns	b1237	hns	b1237	hns	b1237	hns	b1237	hns	b1237
 ydfH	b1540	-	1628352	1629038	+	b1540	-	G6814	YdfH	ydfH	b1540	ydfH	b1540	ydfH	b1540	ydfH	b1540	ydfH	b1540
 yahB	b0316	-	333501	334433	-	b0316	-	G6181	YahB	yahB	b0316	yahB	b0316	yahB	b0316	yahB	b0316	yahB	b0316
 yidZ	b3711	-	3892765	3893724	+	b3711	-	EG11721	YidZ	yidZ	b3711	yidZ	b3711	yidZ	b3711	yidZ	b3711	yidZ	b3711
