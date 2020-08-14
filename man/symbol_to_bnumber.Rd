@@ -2,7 +2,7 @@
 % Please edit documentation in R/symbol_to_bnumber.R
 \name{symbol_to_bnumber}
 \alias{symbol_to_bnumber}
-\title{Read the reference gene file}
+\title{Convert gene symbols to bnumbers}
 \usage{
 symbol_to_bnumber(list_symbols)
 }
@@ -13,5 +13,5 @@ symbol_to_bnumber(list_symbols)
 A character vector of same size as \code{list_symbols}
 }
 \description{
-Read the reference gene file
+Convert gene symbols to bnumbers
 }
