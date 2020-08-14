@@ -16,3 +16,17 @@ get_target_genes <- function() {
 		dplyr::filter(! PRODUCT_TYPE %in% c("small RNA", "tRNAs", "rRNA"))
 	target_genes$BNUMBER
 }
+#' @title Check if genes are TF-coding
+#' @name is_target_gene
+#'
+#' @return A character vector
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+is_target_gene <- function() {
+	master_gene_table <- read_master_gene_file()
+
+	# todo
+}

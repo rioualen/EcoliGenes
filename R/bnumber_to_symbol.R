@@ -1,4 +1,4 @@
-#' @title Read the reference gene file
+#' @title Convert bnumbers to gene symbols
 #' @name bnumber_to_symbol
 #'
 #' @param list_bnumbers A character vector
