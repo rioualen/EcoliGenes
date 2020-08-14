@@ -298,7 +298,7 @@ brnQ	b0401	hrbA	419591	420910	+	b0401	-	EG12168	"HrbA,LIV-II,BrnQ"	brnQ	b0401	br
 bsmA	b4189	yjfO	4416441	4416770	-	b4189	-	G7852	"YjfO,BsmA"	bsmA	b4189	bsmA	b4189	bsmA	b4189	bsmA	b4189	bsmA	b4189
 bssR	b0836	yliH	878248	878631	+	b0836	-	G6436	"YliH,BssR"	bssR	b0836	bssR	b0836	bssR	b0836	bssR	b0836	bssR	b0836
 bssS	b1060	yceP	1120701	1120955	-	b1060	-	G6557	"YceP,BssS"	bssS	b1060	bssS	b1060	bssS	b1060	bssS	b1060	bssS	b1060
-btsR	b2125	yehT	2212243	2212962	-	b2125	-	EG12006	YehT-P	btsR	b2125	btsR	b2125	btsR	b2125	btsR	b2125	btsR	b2125
+btsR	b2125	yehT	2212243	2212962	-	b2125	-	EG12006	"YehT-P, BtsR"	btsR	b2125	btsR	b2125	btsR	b2125	btsR	b2125	btsR	b2125
 btsS	b2126	yehU	2212959	2214644	-	b2126	-	EG12007	-	btsS	b2126	btsS	b2126	btsS	b2126	btsS	b2126	btsS	b2126
 btsT	b4354	yjiY	4589129	4591279	-	b4354	-	G7942	"BtsT,YjiY"	btsT	b4354	btsT	b4354	btsT	b4354	btsT	b4354	btsT	b4354
 btuB	b3966	"bfe,cer"	4163639	4165483	+	b3966	-	EG10126	"Cer,Bfe,BtuB"	btuB	b3966	btuB	b3966	btuB	b3966	btuB	b3966	btuB	b3966
@@ -1203,8 +1203,8 @@ hfq	b4172	-	4400288	4400596	+	b4172	-	EG10438	"Hfq,HF-I"	hfq	b4172	hfq	b4172	hfq
 hha	b0460	-	480090	480308	-	b0460	-	EG10439	Hha	hha	b0460	hha	b0460	hha	b0460	hha	b0460	hha	b0460
 hicA	b4532	yncN	1509286	1509462	+	b4532	-	G0-10451	"YncN,HicA"	hicA	b4532	hicA	b4532	hicA	b4532	hicA	b4532	hicA	b4532
 hicB	b1438	ydcQ	1509508	1509924	+	b1438	-	G6749	"YdcQ,HicB"	hicB	b1438	hicB	b1438	hicB	b1438	hicB	b1438	hicB	b1438
-higA	b3082	ygjM	3233728	3234144	-	b3082	-	G7601	"YgjM,HigA"	higA	b3082	higA	b3082	higA	b3082	higA	b3082	higA	b3082
-higB	b3083	ygjN	3234141	3234455	-	b3083	-	G7602	"YgjN,HigB"	higB	b3083	higB	b3083	higB	b3083	higB	b3083	higB	b3083
+higA	b3082	ygjM	3233728	3234144	-	b3082	-	G7601	"YgjM,HigA,HigBA"	higA	b3082	higA	b3082	higA	b3082	higA	b3082	higA	b3082
+higB	b3083	ygjN	3234141	3234455	-	b3083	-	G7602	"YgjN,HigB,HigBA"	higB	b3083	higB	b3083	higB	b3083	higB	b3083	higB	b3083
 hinT	b1103	ycfF	1161885	1162244	+	b1103	-	EG12172	"YcfF,HinT"	hinT	b1103	hinT	b1103	hinT	b1103	hinT	b1103	hinT	b1103
 hipA	b1507	-	1590854	1592176	-	b1507	-	EG10443	"HipA,HipAB"	hipA	b1507	hipA	b1507	hipA	b1507	hipA	b1507	hipA	b1507
 hipB	b1508	-	1592176	1592442	-	b1508	-	EG10442	"HipB,HipAB"	hipB	b1508	hipB	b1508	hipB	b1508	hipB	b1508	hipB	b1508
@@ -1485,7 +1485,7 @@ kdpA	b0698	kac	727059	728732	-	b0698	-	EG10513	"KdpA,Kac"	kdpA	b0698	kdpA	b0698	
 kdpB	b0697	kac	724988	727036	-	b0697	-	EG10514	"KdpB,Kac"	kdpB	b0697	kdpB	b0697	kdpB	b0697	kdpB	b0697	kdpB	b0697
 kdpC	b0696	kac	724407	724979	-	b0696	-	EG10515	"KdpC,Kac"	kdpC	b0696	kdpC	b0696	kdpC	b0696	kdpC	b0696	kdpC	b0696
 kdpD	b0695	kac	721730	724414	-	b0695	-	EG10516	"Kac,KdpD"	kdpD	b0695	kdpD	b0695	kdpD	b0695	kdpD	b0695	kdpD	b0695
-kdpE	b0694	-	721056	721733	-	b0694	-	EG10517	-	kdpE	b0694	kdpE	b0694	kdpE	b0694	kdpE	b0694	kdpE	b0694
+kdpE	b0694	-	721056	721733	-	b0694	-	EG10517	KdpE	kdpE	b0694	kdpE	b0694	kdpE	b0694	kdpE	b0694	kdpE	b0694
 kdpF	b4513	-	728732	728821	-	b4513	-	G0-10439	KdpF	kdpF	b4513	kdpF	b4513	kdpF	b4513	kdpF	b4513	kdpF	b4513
 kdsA	b1215	-	1268165	1269019	+	b1215	-	EG10518	KdsA	kdsA	b1215	kdsA	b1215	kdsA	b1215	kdsA	b1215	kdsA	b1215
 kdsB	b0918	-	970852	971598	+	b0918	-	EG10519	KdsB	kdsB	b0918	kdsB	b0918	kdsB	b0918	kdsB	b0918	kdsB	b0918
@@ -2310,7 +2310,7 @@ pyrG	b2780	-	2908029	2909666	-	b2780	-	EG10810	PyrG	pyrG	b2780	pyrG	b2780	pyrG	b
 pyrH	b0171	"umk,smbA"	191855	192580	+	b0171	-	EG11539	"Umk,SmbA,PyrH"	pyrH	b0171	pyrH	b0171	pyrH	b0171	pyrH	b0171	pyrH	b0171
 pyrI	b4244	-	4470986	4471447	-	b4244	-	EG10811	PyrI	pyrI	b4244	pyrI	b4244	pyrI	b4244	pyrI	b4244	pyrI	b4244
 pyrL	b4246	"pyrE-,pyrE-LP"	4472399	4472533	-	b4246	-	EG11279	PyrL	pyrL	b4246	pyrL	b4246	pyrL	b4246	pyrL	b4246	pyrL	b4246
-pyrR	b2381	ypdB	2500383	2501117	+	b2381	-	G7244	YpdB-P<sup>asp</sup>	pyrR	b2381	ypdB	b2381	pyrR	b2381	pyrR	b2381	pyrR	b2381
+pyrR	b2381	ypdB	2500383	2501117	+	b2381	-	G7244	"YpdB-P<sup>asp</sup>,PyrR"	pyrR	b2381	ypdB	b2381	pyrR	b2381	pyrR	b2381	pyrR	b2381
 pyrS	b2380	ypdA	2498671	2500368	+	b2380	-	G7243	"YpdA,PyrS"	pyrS	b2380	ypdA	b2380	pyrS	b2380	pyrS	b2380	pyrS	b2380
 qmcA	b0489	ybbK	514856	515773	-	b0489	-	G6265	"YbbK,QmcA"	qmcA	b0489	qmcA	b0489	qmcA	b0489	qmcA	b0489	qmcA	b0489
 qorA	b4051	"hzc,hcz,qor"	4263248	4264231	-	b4051	-	EG11492	"Hzc,Hcz,Qor,QorA"	qorA	b4051	qorA	b4051	qorA	b4051	qorA	b4051	qorA	b4051
@@ -2356,8 +2356,8 @@ rclR	b0305	ykgD	320227	321081	+	b0305	-	G6175	"RclR,YkgD"	rclR	b0305	rclR	b0305	
 rcnA	b2106	yohM	2185917	2186741	+	b2106	-	G7138	"YohM,RcnA"	rcnA	b2106	rcnA	b2106	rcnA	b2106	rcnA	b2106	rcnA	b2106
 rcnB	b2107	yohN	2186960	2187298	+	b2107	-	G7139	"RcnB,YohN"	rcnB	b2107	rcnB	b2107	rcnB	b2107	rcnB	b2107	rcnB	b2107
 rcnR	b2105	yohL	2185524	2185796	-	b2105	-	G7137	"YohL,RcnR"	rcnR	b2105	rcnR	b2105	rcnR	b2105	rcnR	b2105	rcnR	b2105
-rcsA	b1951	cpsR	2023968	2024591	+	b1951	-	EG10820	"CpsR,RcsA"	rcsA	b1951	rcsA	b1951	rcsA	b1951	rcsA	b1951	rcsA	b1951
-rcsB	b2217	-	2316177	2316827	+	b2217	-	EG10821	RcsB	rcsB	b2217	rcsB	b2217	rcsB	b2217	rcsB	b2217	rcsB	b2217
+rcsA	b1951	cpsR	2023968	2024591	+	b1951	-	EG10820	"CpsR,RcsA,RcsAB"	rcsA	b1951	rcsA	b1951	rcsA	b1951	rcsA	b1951	rcsA	b1951
+rcsB	b2217	-	2316177	2316827	+	b2217	-	EG10821	"RcsB,RcsAB"	rcsB	b2217	rcsB	b2217	rcsB	b2217	rcsB	b2217	rcsB	b2217
 rcsC	b2218	-	2317027	2319876	-	b2218	-	EG10822	"RcsC-P<SUP>his479</SUP>,RcsC"	rcsC	b2218	rcsC	b2218	rcsC	b2218	rcsC	b2218	rcsC	b2218
 rcsD	b2216	"yojP,yojQ,yojN"	2313488	2316160	+	b2216	-	EG12385	-	rcsD	b2216	rcsD	b2216	rcsD	b2216	rcsD	b2216	rcsD	b2216
 rcsF	b0196	-	219591	219995	-	b0196	-	EG11502	RcsF	rcsF	b0196	rcsF	b0196	rcsF	b0196	rcsF	b0196	rcsF	b0196
@@ -4488,7 +4488,7 @@ znuA	b1857	"yzzP,yebL"	1941651	1942583	-	b1857	-	G7017	"YzzP,YebL"	znuA	b1857	zn
 znuB	b1859	yebI	1943414	1944199	+	b1859	-	EG12368	YebI	znuB	b1859	znuB	b1859	znuB	b1859	znuB	b1859	znuB	b1859
 znuC	b1858	yebM	1942662	1943417	+	b1858	-	G7018	YebM	znuC	b1858	znuC	b1858	znuC	b1858	znuC	b1858	znuC	b1858
 zraP	b4002	"yjaI,zra"	4201263	4201688	-	b4002	-	EG11918	"Zra,YjaI,ZraP"	zraP	b4002	zraP	b4002	zraP	b4002	zraP	b4002	zraP	b4002
-zraR	b4004	hydG	4203320	4204645	+	b4004	-	EG10482	HydG	zraR	b4004	zraR	b4004	zraR	b4004	zraR	b4004	zraR	b4004
+zraR	b4004	hydG	4203320	4204645	+	b4004	-	EG10482	"HydG,ZraR"	zraR	b4004	zraR	b4004	zraR	b4004	zraR	b4004	zraR	b4004
 zraS	b4003	hydH	4201926	4203323	+	b4003	-	EG10008	"ZraS-P<SUP>his254</SUP>,ZraS"	zraS	b4003	zraS	b4003	zraS	b4003	zraS	b4003	zraS	b4003
 zupT	b3040	ygiE	3182550	3183323	+	b3040	-	EG11167	"ZupT,YgiE"	zupT	b3040	zupT	b3040	zupT	b3040	zupT	b3040	zupT	b3040
 zur	b4046	"yjbK,znuR"	4259488	4260003	-	b4046	-	EG11929	"ZnuR,YjbK,Zur"	zur	b4046	zur	b4046	zur	b4046	zur	b4046	zur	b4046
