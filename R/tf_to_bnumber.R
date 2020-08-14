@@ -16,8 +16,8 @@ tf_to_bnumber <- function(list_proteins) {
 	tf_list_by_synonyms <- split(tf_list_by_synonyms, tf_list_by_synonyms$PROTEIN.SYNONIMS.ECO.v23)
 
 	convert_proteins <- function(x) {
-		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$BNUMBER.ECO.v23[1]), "", warning(paste0("This protein name is unknown and will be converted to `FALSE`: ", x), call. = FALSE))
-		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$BNUMBER.ECO.v23[1]), tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1], FALSE)
+		ifelse(!is.null(tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1]), "", warning(paste0("This protein name is unknown and will be converted to `FALSE`: ", x), call. = FALSE))
+		ifelse(!is.null(tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1]), tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1], FALSE)
 	}
 	list_bnumbers <- sapply(list_proteins, FUN=convert_proteins)
 	unname(list_bnumbers)
