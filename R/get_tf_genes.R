@@ -10,6 +10,20 @@
 get_tf_genes <- function() {
 	master_gene_table <- read_master_gene_file()
 
-	tfs <- master_gene_table %>% dplyr::filter(TF == "yes")
+	tfs <- master_gene_table %>% dplyr::filter(TF_regulondb == "yes")
 	tfs$BNUMBER
+}
+#' @title Check if genes are TF-coding
+#' @name is_tf_gene
+#'
+#' @return A character vector
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+is_tf_gene <- function() {
+	master_gene_table <- read_master_gene_file()
+
+	# todo
 }
