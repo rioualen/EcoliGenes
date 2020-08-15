@@ -16,14 +16,13 @@ get_tf_genes <- function() {
 #' @title Check if genes are TF-coding
 #' @name is_tf_gene
 #'
-#' @return A character vector
+#' @return A logical vector
 #'
-#' @import dplyr
 #' @export
 #'
 #' @examples
-is_tf_gene <- function() {
+is_tf_gene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	# todo
+	list_bnum %in% get_tf_genes()
 }

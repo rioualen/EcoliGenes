@@ -19,14 +19,13 @@ get_target_genes <- function() {
 #' @title Check if genes are TF-coding
 #' @name is_target_gene
 #'
-#' @return A character vector
+#' @return A logical vector
 #'
-#' @import dplyr
 #' @export
 #'
 #' @examples
-is_target_gene <- function() {
+is_target_gene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	# todo
+	list_bnum %in% get_target_genes()
 }

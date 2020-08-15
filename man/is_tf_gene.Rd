@@ -4,10 +4,10 @@
 \alias{is_tf_gene}
 \title{Check if genes are TF-coding}
 \usage{
-is_tf_gene()
+is_tf_gene(bnum_list)
 }
 \value{
-A character vector
+A logical vector
 }
 \description{
 Check if genes are TF-coding
