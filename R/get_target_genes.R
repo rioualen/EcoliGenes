@@ -19,6 +19,7 @@ get_target_genes <- function() {
 #' @title Check if genes are TF-coding
 #' @name is_target_gene
 #'
+#' @param bnum_list A character vector
 #' @return A logical vector
 #'
 #' @export

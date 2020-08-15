@@ -16,6 +16,7 @@ get_tf_genes <- function() {
 #' @title Check if genes are TF-coding
 #' @name is_tf_gene
 #'
+#' @param bnum_list A character vector
 #' @return A logical vector
 #'
 #' @export
