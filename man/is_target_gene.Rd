@@ -6,6 +6,9 @@
 \usage{
 is_target_gene(bnum_list)
 }
+\arguments{
+\item{bnum_list}{A character vector}
+}
 \value{
 A logical vector
 }
