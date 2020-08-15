@@ -28,5 +28,5 @@ get_target_genes <- function() {
 is_target_gene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	list_bnum %in% get_target_genes()
+	bnum_list %in% get_target_genes()
 }

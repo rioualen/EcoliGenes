@@ -25,5 +25,5 @@ get_tf_genes <- function() {
 is_tf_gene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	list_bnum %in% get_tf_genes()
+	bnum_list %in% get_tf_genes()
 }
