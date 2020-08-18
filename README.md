@@ -15,7 +15,7 @@ remotes::install_github("rioualen/EcoliGenes")
  
 ## Example
 
-This is a basic example which shows you how to convert a list of genes:
+Basic examples of the functions currently available:
 
 ``` r
 library(EcoliGenes)
