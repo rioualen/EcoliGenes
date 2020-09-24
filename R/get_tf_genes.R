@@ -10,7 +10,7 @@
 get_tf_genes <- function() {
 	master_gene_table <- read_master_gene_file()
 
-	tfs <- master_gene_table %>% dplyr::filter(TF_regulondb == "yes")
+	tfs <- master_gene_table %>% dplyr::filter(TF_zika == "yes") ## se tiene que uniformizar entre zika y regulon
 	tfs$BNUMBER
 }
 #' @title Check if genes are TF-coding
