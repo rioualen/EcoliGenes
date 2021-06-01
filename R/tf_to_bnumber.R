@@ -10,14 +10,14 @@
 #'
 #' @examples
 tf_to_bnumber <- function(list_proteins) {
-	master_tf_table <- read_master_tf_file()
+	master_gene_table <- read_master_gene_file()
 
-	tf_list_by_synonyms <- master_tf_table %>% tidyr::separate_rows(PROTEIN.SYNONIMS.ECO.v23, sep = ",")
-	tf_list_by_synonyms <- split(tf_list_by_synonyms, tf_list_by_synonyms$PROTEIN.SYNONIMS.ECO.v23)
+	tf_list_by_synonyms <- master_gene_table %>% tidyr::separate_rows(product_synonyms, sep = ",")
+	tf_list_by_synonyms <- split(tf_list_by_synonyms, tf_list_by_synonyms$product_synonyms)
 
 	convert_proteins <- function(x) {
-		ifelse(!is.null(tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1]), "", warning(paste0("This protein name is unknown and will be converted to `FALSE`: ", x), call. = FALSE))
-		ifelse(!is.null(tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1]), tf_list_by_synonyms[[x]]$BNUMBER.ECO.v23[1], FALSE)
+		ifelse(!is.null(tf_list_by_synonyms[[x]]$Consensus_bnumber[1]), "", warning(paste0("This protein name is unknown and will be converted to `NA`: ", x), call. = NA))
+		ifelse(!is.null(tf_list_by_synonyms[[x]]$Consensus_bnumber[1]), tf_list_by_synonyms[[x]]$Consensus_bnumber[1], NA)
 	}
 	list_bnumbers <- sapply(list_proteins, FUN=convert_proteins)
 	unname(list_bnumbers)
