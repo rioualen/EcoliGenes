@@ -15,7 +15,7 @@ remotes::install_github("rioualen/EcoliGenes")
  
 ## Example
 
-Basic examples of the functions currently available:
+Basic examples of the functions currently available. The functions are vectorized, so they can be applied to a single character variable, a vector, or a dataframe column: the output has the same size as the input. 
 
 ``` r
 library(EcoliGenes)
@@ -24,8 +24,8 @@ library(EcoliGenes)
 list_symbols <- c("lexA", "fruR")
 list_symbols_test <- c("lexA", "fruR", "abcD")
 
-list_bnumbers <- c("b0001", "b4338")
-list_bnumbers_test <- c("b0001", "b4338", "b8000")
+list_bnumbers <- c("b0001", "b2697")
+list_bnumbers_test <- c("b0001", "b2697", "b8000")
 
 list_tfs <- c("LexA", "Cra")
 list_tfs_test <- c("LexA", "Cra", "AbcD")
@@ -40,23 +40,13 @@ symbol_to_bnumber(list_symbols_test)
 tf_to_bnumber(list_tfs)
 tf_to_bnumber(list_tfs_test)
 
-## get all tf genes / target genes from regulonDB
-get_target_genes()
-get_tf_genes()
+tf_to_symbol(list_tfs)
+tf_to_symbol(list_tfs_test)
 
-## Check if a list of genes are TFs or potential target genes
-is_target_gene(list_bnumbers)
-is_tf_gene(list_bnumbers)
+## coordinates
+get_gene_start(list_bnumbers)
+get_gene_stop(list_bnumbers)
+get_gene_strand(list_bnumbers)
 ```
 
-## To be added
-
-``` r
-show_synonyms(list_bnumbers)
-show_synonyms(list_symbols)
-show_synonyms(list_tfs)
-get_sRNA(list_bnumbers)
-...
-get_coords(list_bnumbers)
-```
 
