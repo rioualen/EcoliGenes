@@ -15,7 +15,7 @@ remotes::install_github("rioualen/EcoliGenes")
  
 ## Example
 
-Basic examples of the functions currently available. The functions are vectorized, so they can be applied to a single character variable, a vector, or a dataframe column: the output has the same size as the input. 
+A few basic examples of the functions currently available. The functions are vectorized, so they can be applied to a single character variable, a vector, or a dataframe column: the output has the same size as the input. 
 
 ``` r
 library(EcoliGenes)
@@ -31,22 +31,24 @@ list_tfs <- c("LexA", "Cra")
 list_tfs_test <- c("LexA", "Cra", "AbcD")
 
 ## conversions
-bnumber_to_symbol(list_bnumbers)
-bnumber_to_symbol(list_bnumbers_test)
+get_gene_symbol(list_bnumbers)
+get_gene_symbol(list_bnumbers_test)
 
-symbol_to_bnumber(list_symbols)
-symbol_to_bnumber(list_symbols_test)
+get_gene_bnumber(list_symbols)
+get_gene_bnumber(list_symbols_test)
 
-tf_to_bnumber(list_tfs)
-tf_to_bnumber(list_tfs_test)
+get_tf_bnumber(list_tfs)
+get_tf_bnumber(list_tfs_test)
 
-tf_to_symbol(list_tfs)
-tf_to_symbol(list_tfs_test)
-
-## coordinates
+## get coordinates
 get_gene_start(list_bnumbers)
 get_gene_stop(list_bnumbers)
 get_gene_strand(list_bnumbers)
+
 ```
+
+## Structure of the package
+
+![Flowchart.png](EcoliGenes library diagram)
 
 
