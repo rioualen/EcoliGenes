@@ -49,6 +49,6 @@ get_gene_strand(list_bnumbers)
 
 ## Structure of the package
 
-![Flowchart.png](EcoliGenes library diagram)
+![EcoliGenes library diagram](Flowchart.png)
 
 
