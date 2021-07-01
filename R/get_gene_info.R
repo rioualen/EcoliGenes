@@ -100,11 +100,13 @@ get_gene_consensus_info <- function(list_genes) {
 get_gene_synonyms <- function(list_genes) {
 	master_gene_table <- read_master_gene_file()
 
+	gene_list_by_bnum <- split(master_gene_table, master_gene_table$Consensus_bnumber)
+
 	## Check that provided list of genes are valid bnumbers, or can be converted into them
 	list_bnum <- get_gene_bnumber(list_genes)
 
 	gene_synonyms <- function(x) {
-		ifelse(!is.na(x), list_by_b[[x]]$gene_synonyms, NA)
+		ifelse(!is.na(x), gene_list_by_bnum[[x]]$gene_synonyms, NA)
 	}
 	list_synonyms <- sapply(list_bnum, FUN = gene_synonyms)
 	unname(list_synonyms)
@@ -122,12 +124,13 @@ get_gene_synonyms <- function(list_genes) {
 #' @examples
 get_gene_length <- function(list_genes) {
 	master_gene_table <- read_master_gene_file()
+	gene_list_by_bnum <- split(master_gene_table, master_gene_table$Consensus_bnumber)
 
 	## Check that provided list of genes are valid bnumbers, or can be converted into them
 	list_bnum <- get_gene_bnumber(list_genes)
 
 	gene_length <- function(x) {
-		ifelse(!is.na(x), list_by_b[[x]]$Consensus_stop - list_by_b[[x]]$Consensus_start, NA)
+		ifelse(!is.na(x), gene_list_by_bnum[[x]]$Consensus_stop - gene_list_by_bnum[[x]]$Consensus_start, NA)
 	}
 	list_lengths <- sapply(list_bnum, FUN = gene_length)
 	unname(list_lengths)
