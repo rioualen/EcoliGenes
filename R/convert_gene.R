@@ -18,7 +18,8 @@ get_gene_bnumber <- function(list_genes) {
 	gene_list_by_symbol_or_synonym <- c(gene_list_by_symbol, gene_list_by_synonyms)
 
 	convert_symbols <- function(x) {
-		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$Consensus_bnumber[1]), "", warning(paste0("This gene is unknown and will be converted to `NA`: ", x), call. = NA))
+		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$Consensus_bnumber[1]), "",
+					 ifelse(!is.na(x), warning(paste0("This gene is unknown and will be converted to `NA`: ", x), call. = NA), NA))
 		ifelse(!is.null(gene_list_by_symbol_or_synonym[[x]]$Consensus_bnumber[1]), gene_list_by_symbol_or_synonym[[x]]$Consensus_bnumber[1], NA)
 	}
 	list_bnumbers <- sapply(list_genes, FUN=convert_symbols)
@@ -45,7 +46,8 @@ get_gene_symbol <- function(list_genes) {
 	gene_list_by_bnum_or_synonym <- c(gene_list_by_bnum, gene_list_by_synonyms)
 
 	convert_bnumbers <- function(x) {
-		ifelse(!is.null(gene_list_by_bnum_or_synonym[[x]]$Consensus_symbol[1]), "", warning(paste0("This gene is unknown and will be converted to `NA`: ", x), call. = NA))
+		ifelse(!is.null(gene_list_by_bnum_or_synonym[[x]]$Consensus_symbol[1]), "",
+					 ifelse(!is.na(x), warning(paste0("This gene is unknown and will be converted to `NA`: ", x), call. = NA), NA))
 		ifelse(!is.null(gene_list_by_bnum_or_synonym[[x]]$Consensus_symbol[1]), gene_list_by_bnum_or_synonym[[x]]$Consensus_symbol[1], NA)
 	}
 	list_symbols <- sapply(list_genes, FUN=convert_bnumbers)

@@ -17,6 +17,41 @@ get_all_genes <- function() {
 	all_genes$Consensus_bnumber
 }
 
+#' @title Get all genes names and bnumbers
+#' @name get_all_gene_synonyms
+#'
+#' @return A character vector
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+get_all_gene_synonyms <- function() {
+	master_gene_table <- read_master_gene_file()
+
+	all_genes <- master_gene_table %>%
+		dplyr::filter(!is.na(Consensus_start)|!is.na(Consensus_stop)|!is.na(Consensus_strand)) %>%
+		dplyr::select(gene_synonyms)
+	unlist(strsplit(all_genes$gene_synonyms, split = ","))
+}
+
+#' @title Get all genes names and bnumbers
+#' @name get_all_protein_synonyms
+#'
+#' @return A character vector
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+get_all_protein_synonyms <- function() {
+	master_gene_table <- read_master_gene_file()
+
+	all_proteins <- master_gene_table %>%
+		dplyr::filter(!is.na(Consensus_start)|!is.na(Consensus_stop)|!is.na(Consensus_strand)) %>%
+		dplyr::select(product_synonyms)
+	unlist(strsplit(all_proteins$product_synonyms, split = ","))
+}
 #' @title Get TF-coding genes
 #' @name get_tf_genes
 #'
