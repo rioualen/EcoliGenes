@@ -81,7 +81,9 @@ get_gene_consensus_info <- function(list_genes) {
 	## Check that provided list of genes are valid bnumbers, or can be converted into them
 	list_bnum <- get_gene_bnumber(list_genes)
 
-	result <- master_gene_table %>% dplyr::filter(Consensus_bnumber %in% list_bnum) %>% dplyr::select(matches("Consensus_"))
+	result <- master_gene_table %>%
+		dplyr::filter(Consensus_bnumber %in% list_bnum) %>%
+		dplyr::select(matches("Consensus_"), gene_synonyms, product_synonyms)
 	result
 }
 
@@ -109,6 +111,33 @@ get_gene_synonyms <- function(list_genes) {
 		ifelse(!is.na(x), gene_list_by_bnum[[x]]$gene_synonyms, NA)
 	}
 	list_synonyms <- sapply(list_bnum, FUN = gene_synonyms)
+	unname(list_synonyms)
+}
+
+#' @title Get gene synonyms from the master table for a given vector of genes
+#' @name get_protein_synonyms
+#'
+#' @param list_genes A character vector of gene names, bnumbers, symbols
+#'
+#' @return A character vector of same size as `list_genes` with comma-separated synonyms
+
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+get_protein_synonyms <- function(list_genes) {
+	master_gene_table <- read_master_gene_file()
+
+	gene_list_by_bnum <- split(master_gene_table, master_gene_table$Consensus_bnumber)
+
+	## Check that provided list of genes are valid bnumbers, or can be converted into them
+	list_bnum <- get_gene_bnumber(list_genes)
+
+	protein_synonyms <- function(x) {
+		ifelse(!is.na(x), gene_list_by_bnum[[x]]$protein_synonyms, NA)
+	}
+	list_synonyms <- sapply(list_bnum, FUN = protein_synonyms)
 	unname(list_synonyms)
 }
 

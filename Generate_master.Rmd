@@ -193,6 +193,9 @@ zika_genes_parsed <- zika_genes %>%
 ## Manually added synonyms
 ## raiZ/b4805, C0293/b4806
 ## istR-1/istR
+## TODO efeU_1 efeU
+## TODO ilvG_1 ilvG
+## insAB-5 check ecocyc should be in there?b ybeM_1 ychG_1 dpaA
 Consensus_symbol <- c("gatR", "insO", "istR", "yagP", "ydfJ", "ydiU", "yjhB", "ydgV", "yhjC", "yejM", "yhcH",  "yeeX", "ygeR", "yedR", "yraP", "yddW", "yhcB", "yafK", "ytfL", "yebS", "yjhC")
 add_synonyms <- c("gatR_2", "insN-2", "istR-1", "b4694", "b4600", "selO", "nanX", "mdtU", "rcdB", "lapC", "nanQ", "tmaR", "actS", "drpB", "dolP", "digH", "zapG", "dpaA", "paeA", "letA", "nanY")
 manual_synonyms <- data.frame(Consensus_symbol, add_synonyms)
@@ -323,6 +326,7 @@ refseq_added <- regulon_zika_genes_proteins_synonyms %>%
 
 
 ## Manually add lines for TF that form dimers are associated to 2 bnumbers
+## To do: separate TFs and proteins into another table
 bnum <- c("b1712,b0912", "b3357,b0959", "b1892,b1891", "b0226,b0225", "b2783,b2782", "b1951,b2217", "b2217,b4366", "b3512,b2217", "b1564,b1563", "b2017,b4539", "b1507,b1508", "b3083,b3082", "b4000,b0440")
 sym <- c("ihfA,ihfB", "crp,sxy", "flhD,flhC", "dinJ,yafQ", "mazE,mazF", "rcsA,rcsB", "rcsB,bglJ", "gadE,rcsB", "relB,rel", "yefM,yoeB", "hipA,hipB", "higB,higA", "hupA,hupB")
 syno <-  c("IHF", "CRP-Sxy", "FlhDC", "DinJ-YafQ", "MazE-MazF", "RcsAB", "RcsB-BglJ", "GadE-RcsB", "RelB-RelE", "YefM-YoeB", "HipAB", "HigBA", "HU,hu,HupAB")

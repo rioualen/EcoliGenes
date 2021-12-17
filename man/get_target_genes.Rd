@@ -7,7 +7,7 @@
 get_target_genes(source = "all")
 }
 \arguments{
-\item{source}{Optional, one of c("all", "zika", "regulondb")}
+\item{source}{Optional, one of c("all", "regulondb")}
 }
 \value{
 A character vector

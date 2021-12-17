@@ -21,7 +21,8 @@ is_genic <- function(positions, strand) {
 		introw <- which(check == 1)
 		length(introw)
 	}
-	sapply(positions, strand, FUN=check_genic)
+	# sapply(positions, strand, FUN = check_genic)
+	mapply(FUN = check_genic, positions, strand)
 }
 
 #' @title Check in which gene
@@ -51,7 +52,7 @@ where_genic <- function(positions, strand) {
 			paste(df$Consensus_symbol, collapse = ",")
 		}
 	}
-	list_genes <- sapply(positions, strand, FUN=check_genic_which_gene)
+	list_genes <- sapply(positions, strand, FUN = check_genic_which_gene)
 	unname(list_genes)
 }
 
@@ -129,5 +130,35 @@ what_genes <- function(start, stop, strand) {
 
 		genes
 	}
-	sapply(start, stop, strand, FUN=get_genes)
+	sapply(start, stop, strand, FUN = get_genes)
 }
+
+#' @title Get closest gene bnumber
+#' @name closest_gene
+#'
+#' @param position A numeric vector
+#' @param strand A character in c("+", "-", "+-")
+#'
+#' @return A vector of characters of same size as input
+#'
+#' @import dplyr
+#' @import stringr
+#' @export
+#'
+#' @examples
+closest_gene <- function(position, strand = "+-") {
+	master_gene_table <- read_master_gene_file()
+	# %>%
+	# 	dplyr::filter(!is.na(Consensus_start) & !is.na(Consensus_stop) & !is.na(Consensus_strand)) %>%
+	# 	dplyr::mutate(aug = ifelse(Consensus_strand == "-", Consensus_stop, Consensus_start))
+
+	get_closest <- function(x, y) {
+		strd <- c(stringr::str_split(y, "", simplify = T))
+		df <- master_gene_table %>% dplyr::filter(Consensus_strand %in% strd)
+		gene <- df %>%
+			dplyr::filter(abs(x - aug) == min(abs(x - df$aug)))
+		gene$Consensus_bnumber[1] ## OJO there can be more than one answer!
+	}
+	mapply(position, strand, FUN = get_closest)
+}
+

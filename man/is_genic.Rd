@@ -4,10 +4,12 @@
 \alias{is_genic}
 \title{Check if a position or vector of positions are genic}
 \usage{
-is_genic(positions)
+is_genic(positions, strand)
 }
 \arguments{
 \item{positions}{A numeric vector}
+
+\item{strand}{A character vector}
 }
 \value{
 A vector of logicals of size \code{length(positions)}

@@ -9,7 +9,11 @@ The goal of EcoliGenes is to perform verifications and conversions of gene symbo
 ## Installation
 
 ``` r
-remotes::install_github("rioualen/EcoliGenes")
+# remotes::install_github("rioualen/EcoliGenes")
+
+# For now, download and sourc:
+devtools::load_all("<path_to_download_dir>/EcoliGenes")
+
 ```
 
  
