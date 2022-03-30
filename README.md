@@ -8,7 +8,7 @@ The goal of EcoliGenes is to perform verifications and conversions of gene symbo
 
 ## Tools
 
-![Conversion tools](img/conversion_tools.png)
+<img src="img/conversion_tools.png" alt="Conversion tools" width="200"/>
 
 ![Gene tools](img/gene_tools.png)
 
