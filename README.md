@@ -6,6 +6,16 @@
 
 The goal of EcoliGenes is to perform verifications and conversions of gene symbols and bnumbers. Indeed, we have noticed a number of discrepancies between the annotations in different databases of reference such as [RegulonDB](http://regulondb.ccg.unam.mx), [Ecocyc](https://ecocyc.org/), or [GenBank](https://www.ncbi.nlm.nih.gov/genbank/). We use an internal file with up-to-date gene symbols and bnumbers, as well as lists of synonyms commonly found accross databases, in order to uniformize gene sets for downstream treatments. 
 
+## Tools
+
+![Conversion tools](img/conversion_tools.png)
+
+![Gene tools](img/gene_tools.png)
+
+![TF tools](img/tf_tools.png)
+
+
+
 ## Installation
 
 ``` r
@@ -24,35 +34,9 @@ A few basic examples of the functions currently available. The functions are vec
 ``` r
 library(EcoliGenes)
 
-## basic example data
-list_symbols <- c("lexA", "fruR")
-list_symbols_test <- c("lexA", "fruR", "abcD")
-
-list_bnumbers <- c("b0001", "b2697")
-list_bnumbers_test <- c("b0001", "b2697", "b8000")
-
-list_tfs <- c("LexA", "Cra")
-list_tfs_test <- c("LexA", "Cra", "AbcD")
-
-## conversions
-get_gene_symbol(list_bnumbers)
-get_gene_symbol(list_bnumbers_test)
-
-get_gene_bnumber(list_symbols)
-get_gene_bnumber(list_symbols_test)
-
-get_tf_bnumber(list_tfs)
-get_tf_bnumber(list_tfs_test)
-
-## get coordinates
-get_gene_start(list_bnumbers)
-get_gene_stop(list_bnumbers)
-get_gene_strand(list_bnumbers)
+## to do
 
 ```
 
-## Structure of the package
-
-![EcoliGenes library diagram](Flowchart.png)
 
 
