@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .DS_Store
+Generate_master_cache/
 old/
 *.html
 env.r
