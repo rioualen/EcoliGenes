@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_gene.R
 \name{get_gene_symbol}
 \alias{get_gene_symbol}
-\title{Convert bnumbers to gene symbols}
+\title{Convert any name or id to gene symbols \link{deprecated}}
 \usage{
 get_gene_symbol(list_genes)
 }
@@ -13,5 +13,5 @@ get_gene_symbol(list_genes)
 A character vector of same size as \code{list_genes}
 }
 \description{
-Convert bnumbers to gene symbols
+Convert any name or id to gene symbols \link{deprecated}
 }
