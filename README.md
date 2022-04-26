@@ -24,7 +24,7 @@ The goal of EcoliGenes is to perform verifications and conversions of gene symbo
 
 ### Genomic coordinates conversion
 
-> to do
+![Coordinates conversion](img/conversion_tool.png)
 
 ## Installation
 
