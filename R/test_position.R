@@ -14,14 +14,13 @@ is_genic <- function(positions, strand) {
 	master_gene_table <- read_master_gene_file()
 
 	check_genic <- function(x, y) {
-			genes <- master_gene_table %>% filter(Consensus_strand == y)
-			lo <- x >= genes$Consensus_start
-			hi <- x <= genes$Consensus_stop
+			genes <- master_gene_table %>% filter(Reference_strand == y)
+			lo <- x >= genes$Reference_start
+			hi <- x <= genes$Reference_stop
 		check <- lo * hi
 		introw <- which(check == 1)
 		length(introw)
 	}
-	# sapply(positions, strand, FUN = check_genic)
 	mapply(FUN = check_genic, positions, strand)
 }
 
@@ -41,15 +40,15 @@ where_genic <- function(positions, strand) {
 	master_gene_table <- read_master_gene_file()
 
 		check_genic_which_gene <- function(x, y) {
-			genes <- master_gene_table %>% filter(Consensus_strand == y)
-			lo <- x >= genes$Consensus_start
-			hi <- x <= genes$Consensus_stop
+			genes <- master_gene_table %>% filter(Reference_strand == y)
+			lo <- x >= genes$Reference_start
+			hi <- x <= genes$Reference_stop
 			check <- lo * hi
 			df <- genes[which(check == 1),]
 		if(nrow(df) == 0 ){
 			NA
 		} else {
-			paste(df$Consensus_symbol, collapse = ",")
+			paste(df$Reference_symbol, collapse = ",")
 		}
 	}
 	list_genes <- sapply(positions, strand, FUN = check_genic_which_gene)
@@ -88,50 +87,21 @@ where_genic_rel <- function(positions, strand) {
 			dplyr::group_by(x, y)
 		paste(df$relative_pos, collapse = ",")
 
-		# genes <- master_gene_table %>% filter(Consensus_strand == y)
-		# lo <- x >= genes$Consensus_start
-		# hi <- x <= genes$Consensus_stop
+		# genes <- master_gene_table %>% filter(Reference_strand == y)
+		# lo <- x >= genes$Reference_start
+		# hi <- x <= genes$Reference_stop
 		# check <- lo * hi
 		# df <- genes[which(check == 1),]
 		# if(nrow(df) == 0 ){
 		# 	NA
 		# } else {
-		# 	paste(df$Consensus_bnumber, collapse = ",")
+		# 	paste(df$Reference_bnumber, collapse = ",")
 		# }
 	}
 	list_relpos <- sapply(positions, strand, FUN = check_genic_with_pos)
 	unname(list_relpos)
 }
 
-#' @title Get bnumbers from genes entirely comprised in a given interval of coordinates
-#' @name what_genes
-#'
-#' @param start A numeric vector
-#' @param stop A numeric vector
-#' @param strand A character vector
-#'
-#' @return A vector of characters of same size as inputs
-#'
-#' @import dplyr
-#' @export
-#'
-#' @examples
-what_genes <- function(start, stop, strand) {
-	master_gene_table <- read_master_gene_file()
-
-	get_genes <- function(x, y, z) {
-		genes <- master_gene_table %>%
-			dplyr::filter(Consensus_start >= x,
-										Consensus_stop <= y,
-										Consensus_strand == z)
-		genes <- ifelse(z == "-",
-										paste0(rev(unique(na.omit(genes$Consensus_bnumber))), collapse = ','),
-										paste0(unique(na.omit(genes$Consensus_bnumber)), collapse = ','))
-
-		genes
-	}
-	sapply(start, stop, strand, FUN = get_genes)
-}
 
 #' @title Get closest gene bnumber
 #' @name closest_gene
@@ -148,16 +118,13 @@ what_genes <- function(start, stop, strand) {
 #' @examples
 closest_gene <- function(position, strand = "+-") {
 	master_gene_table <- read_master_gene_file()
-	# %>%
-	# 	dplyr::filter(!is.na(Consensus_start) & !is.na(Consensus_stop) & !is.na(Consensus_strand)) %>%
-	# 	dplyr::mutate(aug = ifelse(Consensus_strand == "-", Consensus_stop, Consensus_start))
 
 	get_closest <- function(x, y) {
 		strd <- c(stringr::str_split(y, "", simplify = T))
-		df <- master_gene_table %>% dplyr::filter(Consensus_strand %in% strd)
+		df <- master_gene_table %>% dplyr::filter(Reference_strand %in% strd)
 		gene <- df %>%
 			dplyr::filter(abs(x - aug) == min(abs(x - df$aug)))
-		gene$Consensus_bnumber[1] ## OJO there can be more than one answer!
+		gene$Reference_bnumber[1] ## OJO there can be more than one answer!
 	}
 	mapply(position, strand, FUN = get_closest)
 }
