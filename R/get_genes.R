@@ -7,51 +7,16 @@
 #' @export
 #'
 #' @examples
-get_all_genes <- function() {
-	master_gene_table <- read_master_gene_file()
+get_all_genes <- function() { ## add opt pseudogenes TF and phantomgene TF ## outpout bnumber or opt symbols?
+	master_gene_table <- read_source_file("genes")
 
 	all_genes <- master_gene_table %>%
-		dplyr::filter(!is.na(Consensus_start)|!is.na(Consensus_stop)|!is.na(Consensus_strand)) %>%
-		dplyr::select(Consensus_bnumber)
+		dplyr::filter(!is.na(Reference_start)|!is.na(Reference_stop)|!is.na(Reference_strand)) %>%
+		dplyr::select(Reference_bnumber)
 
-	all_genes$Consensus_bnumber
+	all_genes$Reference_bnumber
 }
 
-#' @title Get all genes names and bnumbers
-#' @name get_all_gene_synonyms
-#'
-#' @return A character vector
-#'
-#' @import dplyr
-#' @export
-#'
-#' @examples
-get_all_gene_synonyms <- function() {
-	master_gene_table <- read_master_gene_file()
-
-	all_genes <- master_gene_table %>%
-		dplyr::filter(!is.na(Consensus_start)|!is.na(Consensus_stop)|!is.na(Consensus_strand)) %>%
-		dplyr::select(gene_synonyms)
-	unlist(strsplit(all_genes$gene_synonyms, split = ","))
-}
-
-#' @title Get all genes names and bnumbers
-#' @name get_all_protein_synonyms
-#'
-#' @return A character vector
-#'
-#' @import dplyr
-#' @export
-#'
-#' @examples
-get_all_protein_synonyms <- function() {
-	master_gene_table <- read_master_gene_file()
-
-	all_proteins <- master_gene_table %>%
-		dplyr::filter(!is.na(Consensus_start)|!is.na(Consensus_stop)|!is.na(Consensus_strand)) %>%
-		dplyr::select(product_synonyms)
-	unlist(strsplit(all_proteins$product_synonyms, split = ","))
-}
 #' @title Get TF-coding genes
 #' @name get_tf_genes
 #'
@@ -63,35 +28,16 @@ get_all_protein_synonyms <- function() {
 #'
 #' @examples
 get_tf_genes <- function(source = "all") {
-	master_gene_table <- read_master_gene_file()
+	master_tf_table <- read_source_file("tfs")
 
 	if (source == "all") {
-		tfs <- master_gene_table %>%
-			dplyr::filter(Consensus_TF == 1) %>%
-			dplyr::select(Consensus_bnumber)
+		tfs <- master_tf_table$Reference_name
 	} else if (source == "regulondb"){
-		tfs <- master_gene_table %>%
-			dplyr::filter(RegulonDB_TF == 1) %>%
-			dplyr::select(Consensus_bnumber)
+		tfs <- master_tf_table %>%
+			dplyr::filter(!is.na(RegulonDB_tf_id))
+		tfs <- tfs$Reference_name
 	} else {
 		stop("Error: 'source' parameter must be one of 'all', 'regulondb' ")
 	}
-	tfs$Consensus_bnumber
+	tfs
 }
-
-#' @title Get potentially TF-regulated genes
-#' @name get_target_genes
-#'
-#' @param source Optional, one of c("all", "regulondb")
-#' @return A character vector
-#'
-#' @import dplyr
-#' @export
-#'
-#' @examples
-get_target_genes <- function(source = "all") {
-	master_gene_table <- read_master_gene_file()
-	## todo
-	## Get all genes potentially regulated (remove pseudo genes, phantom, ...?)
-}
-

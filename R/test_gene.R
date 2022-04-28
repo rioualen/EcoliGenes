@@ -42,14 +42,10 @@ is_tf_gene <- function(bnum_list,  source = "all") {
 is_pseudogene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	pseudogenes <- (master_gene_table %>% dplyr::filter(RegulonDB_type == "Pseudo Gene"))$Consensus_bnumber
-	# gene_list_by_bnum <- split(master_gene_table, master_gene_table$Consensus_bnumber)
+	pseudogenes <- (master_gene_table %>% dplyr::filter(RegulonDB_type == "Pseudo Gene"))$Reference_bnumber
 
 	check_pseudo <- function(x) {
 		ifelse(x %in% pseudogenes, 1, 0)
-		# out <- gene_list_by_bnum[[x]]$pseudo
-		# if(is.null(out)) {out <- NA}
-		# out
 	}
 	res <- sapply(bnum_list, FUN = check_pseudo)
 	unname(res)
@@ -67,14 +63,10 @@ is_pseudogene <- function(bnum_list) {
 is_phantomgene <- function(bnum_list) {
 	master_gene_table <- read_master_gene_file()
 
-	phantomgenes <- (master_gene_table %>% dplyr::filter(RegulonDB_type == "Phantom Gene"))$Consensus_bnumber
-	# gene_list_by_bnum <- split(master_gene_table, master_gene_table$Consensus_bnumber)
+	phantomgenes <- (master_gene_table %>% dplyr::filter(RegulonDB_type == "Phantom Gene"))$Reference_bnumber
 
 	check_phantom <- function(x) {
 		ifelse(x %in% phantomgenes, 1, 0)
-		# out <- gene_list_by_bnum[[x]]$phantom
-		# if(is.null(out)) {out <- NA}
-		# out
 	}
 	res <- sapply(bnum_list, FUN = check_phantom)
 	unname(res)
