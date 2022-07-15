@@ -24,13 +24,13 @@ body{ /* Normal  */
 </style>
 
 ```{r init, include = FALSE}
-setwd("/Users/rioualen/Desktop/Git/EcoliGenes/")
+setwd("/Users/rioualen/Google Drive/Work/_Git/EcoliGenes/")
 date <- Sys.Date()
 source(file = "env.r")
 ```
 
 ```{r setup, include = FALSE}
-knitr::opts_knit$set(root.dir = "/Users/rioualen/Desktop/Git/EcoliGenes/")
+knitr::opts_knit$set(root.dir = "/Users/rioualen/Google Drive/Work/_Git/EcoliGenes/")
 knitr::opts_chunk$set(echo = TRUE, include = TRUE, warning = FALSE, message = FALSE, cache = TRUE, eval = FALSE, results = 'asis', fig.width=12, fig.height=6, fig.align = 'center')
 
 ```
@@ -38,37 +38,15 @@ knitr::opts_chunk$set(echo = TRUE, include = TRUE, warning = FALSE, message = FA
 ```{r libs-n-functions}
 require(dplyr)
 require(DT)
+require(ggplot2)
 require(readr)
 require(RMariaDB)
 require(stringr)
 require(UpSetR)
+require(ComplexUpset)
 
-concat_uniq <- function(x, sep = ","){
-	paste0(unique(na.omit(x)), collapse = sep)
-}
+source(file = "../utils.r")
 
-concat_uniq2 <- function(..., sep = ","){
-	vec <- paste(na.omit(c(...)), collapse = sep)
-	res <- gsub("^,", "", paste(unique(sort(stringr::str_split(vec, pattern = ",")[[1]])), collapse = sep))
-	res
-}
-
-rm_brackets <- function(x){
-	str_replace_all(x, "\\[|\\]|\\ ", "")
-}
-
-rm_special_char <- function(x){
-	str_replace_all(x, "\\[|\\]|\\ |\\|", "")
-}
-
-capitalize <- function(x){
-	CapStr <- function(y) {
-		c <- strsplit(y, " ")[[1]]
-		paste(toupper(substring(c, 1,1)), substring(c, 2),
-					sep="", collapse=" ")
-	}
-	sapply(x, CapStr)
-}
 
 ```
 
@@ -110,7 +88,7 @@ RMariaDB::dbDisconnect(regulondb_access)
 
 From Genbank.
 
-```{r query-zika}
+```{r query-zika, eval = FALSE}
 zikadb_access <- RMariaDB::dbConnect(RMariaDB::MariaDB(),
 																		 username = zika_username,
 																		 password = zika_password,
@@ -161,7 +139,7 @@ write.table(zika_genes_parsed, file = "inst/extdata/zika_genes.tsv", sep="\t", c
 **(\*) Note**: start, stop and strand *should not* be different, and cases where this happens should be carefully revised.
 
 ```{r merge-genes-up-2022}
-zika_genes_parsed <- read.table(file = "inst/extdata/zika_genes.tsv", sep="\t", header = T)
+zika_genes_parsed <- read.table(file = "inst/local_data/zika_genes.tsv", sep="\t", header = T)
 
 ## Join RegulonDB and Zika genes on bnumber, then symbol, then coordinates
 all_genes <- regulon_genes %>%
@@ -294,14 +272,16 @@ From the following sources:
 ## temp, add a few potential TFs from RegulonDB HT datasets
 ht_TFs_2022 <- c("dps", "hfq", "kefG", "ygfB")
 
+# old_TFs <- c("MqsA-MqsR")
+
 ## Mark genes predicted as potentially TF-coding (Perez-Rueda et al., 2015)
-pred2015 <- read.delim("inst/extdata/Perez-Rueda_2015.tsv", header=T, stringsAsFactors = F, comment.char = "#", na.strings = "")
+pred2015 <- read.delim("inst/local_data/Perez-Rueda_2015.tsv", header=T, stringsAsFactors = F, comment.char = "#", na.strings = "")
 
 predicted_TFs_2015 <- na.omit(c(pred2015$Gene.Name, pred2015$Locus))
 
 
 ## Mark genes predicted as potentially TF-coding (Flores-Bautista et al., 2020)
-pred2020 <- read.delim("inst/extdata/Flores-Bautista_2020.tsv", header=T, stringsAsFactors = F, comment.char = "#", na.strings = "") %>% 
+pred2020 <- read.delim("inst/local_data/Flores-Bautista_2020.tsv", header=T, stringsAsFactors = F, comment.char = "#", na.strings = "") %>% 
 	dplyr::filter(Organism == "Escherichia coli (strain K12)") %>%
 	dplyr::select(Entraf, Entry, Gene.names, Entry.name, Regulatory.role) %>%
 	dplyr::rowwise() %>% 
@@ -315,7 +295,7 @@ predicted_TFs_2020 <- na.omit(pred2020$sym)
 
 ## Mark genes predicted as potentially TF-coding (Kim et al., 2021)
 
-pred2021 <- read.delim("inst/extdata/Kim_2021.tsv", header=T, stringsAsFactors = F, comment.char = "#") 
+pred2021 <- read.delim("inst/local_data/Kim_2021.tsv", header=T, stringsAsFactors = F, comment.char = "#") 
 
 predicted_TFs_2021 <- pred2021$locus.tag
 
@@ -350,6 +330,39 @@ UpSetR::upset(fromList(tf_list), nsets = 6, number.angles = 0, point.size = 4, l
     text.scale = c(1.7, 1.7, 1.7, 1.7, 2, 2), order.by = "degree",
     keep.order = T, sets = rev(tf_sources))
 
+## complex upset
+#----------
+tf_sources <- c("Predicted_TF_2021", "Predicted_TF_2020", "Predicted_TF_2015", "Annotated_TF", "RegulonDB_TF") 
+tf_list <- list()
+for (source in tf_sources) {
+	tf_list[[source]] <- all_tfs_genes %>% dplyr::filter(get(source) == 1) %>% dplyr::select(Reference_symbol) %>% .$Reference_symbol
+}
+
+#----------
+ComplexUpset::upset(fromList(tf_list), 
+                    tf_sources,
+                    name = "TFs and putative TFs grouped by shared sources",
+                    base_annotations = list(
+                      'Number of TFs in each group' = ComplexUpset::intersection_size(counts = TRUE, text = list(size = 5))
+                    ),
+                    set_sizes = upset_set_size() + ylab('Number of TFs per source'),
+										# + geom_text(aes(label = ..count..), hjust = 1.1, stat = 'count', size = 5) + expand_limits(y=400),
+                    # stripes = c('white', "white", "white", "white", '#eedabb'),
+										stripes = ComplexUpset::upset_stripes(
+											geom = geom_segment(size = 15),
+											colors = c('grey85', "grey95", "grey85", "grey95", '#eedabb')
+										),
+                    themes = upset_default_themes(text = element_text(size = 16)),
+                    width_ratio = 0.3, 
+										height_ratio = 0.5, 
+										sort_intersections_by = c('degree', 'cardinality'),
+										sort_sets=FALSE,
+                    queries = list(
+                      upset_query(set = 'RegulonDB_TF', fill='#d0b17f')
+                      # upset_query(intersect = tf_sources, fill = 'seagreen', color = "seagreen")
+                    )
+)
+
 ```
 
 <!-- ![TF sets](img/upset_tfs.png) -->
@@ -361,7 +374,7 @@ all_tfs <- regulon_tfs %>%
 									 	dplyr::filter(!is.na(RegulonDB_tf_id)) %>%
 									 	dplyr::select(RegulonDB_product_name, RegulonDB_tf_id, Ecocyc_id,
 									 								RegulonDB_TF, Zika_TF, Annotated_TF, Predicted_TF_2015, Predicted_TF_2020, Predicted_TF_2021,
-									 								gene_synonyms, product_synonyms) %>%
+									 								gene_synonyms) %>%
 									 	tidyr::separate_rows(RegulonDB_tf_id), 
 									 by = "RegulonDB_tf_id") %>%
 	dplyr::group_by(RegulonDB_tf_id) %>%
@@ -409,7 +422,7 @@ master_tf <- all_tfs %>%
 	dplyr::left_join(manual_synonyms, by = ("Reference_name")) %>%
   dplyr::rowwise() %>%
   dplyr::mutate(TF_synonyms = concat_uniq2(TF_synonyms, add_synonyms)) %>%
-	dplyr::select(-add_synonyms)
+	dplyr::select(-add_synonyms, -Zika_TF)
 
 write.table(master_tf, file = "inst/extdata/master_tf_file.tsv", sep="\t", col.names = T, row.names = F)
 
