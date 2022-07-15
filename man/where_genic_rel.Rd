@@ -9,10 +9,10 @@ where_genic_rel(positions, strand)
 \arguments{
 \item{positions}{A numeric vector}
 
-\item{strand}{A character vector}
+\item{strand}{A character vector of same size as \code{positions}}
 }
 \value{
-A numeric vector of same size
+A numeric vector of same size as \code{positions}
 }
 \description{
 Check where in gene

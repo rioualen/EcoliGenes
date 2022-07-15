@@ -2,18 +2,18 @@
 % Please edit documentation in R/test_position.R
 \name{where_genic}
 \alias{where_genic}
-\title{Check in which gene}
+\title{Check in which gene falls a given position}
 \usage{
 where_genic(positions, strand)
 }
 \arguments{
-\item{positions}{A numeric vector}
+\item{positions}{A vector of integers}
 
-\item{strand}{A character vector}
+\item{strand}{A character vector of size 1 or same size as \code{positions}}
 }
 \value{
-A character vector of same size
+A character vector of same size as \code{positions}
 }
 \description{
-Check in which gene
+Check in which gene falls a given position
 }

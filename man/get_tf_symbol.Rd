@@ -2,10 +2,8 @@
 % Please edit documentation in R/convert_tf.R
 \name{get_tf_symbol}
 \alias{get_tf_symbol}
-\title{Convert TF protein names into symbols}
+\title{Convert TF protein names into gene symbols \link{deprecated}}
 \usage{
-get_tf_symbol(list_tfs)
-
 get_tf_symbol(list_tfs)
 }
 \arguments{
@@ -13,11 +11,7 @@ get_tf_symbol(list_tfs)
 }
 \value{
 A character vector of same size as \code{list_tfs}
-
-A character vector of same size as \code{list_tfs}
 }
 \description{
-Convert TF protein names into symbols
-
-Convert TF protein names into symbols
+Convert TF protein names into gene symbols \link{deprecated}
 }

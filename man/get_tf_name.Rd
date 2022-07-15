@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_tf.R
 \name{get_tf_name}
 \alias{get_tf_name}
-\title{Convert TF protein names into symbols}
+\title{Convert TF protein names into symbols \link{deprecated}}
 \usage{
 get_tf_name(list_tfs)
 }
@@ -13,5 +13,5 @@ get_tf_name(list_tfs)
 A character vector of same size as \code{list_tfs}
 }
 \description{
-Convert TF protein names into symbols
+Convert TF protein names into symbols \link{deprecated}
 }

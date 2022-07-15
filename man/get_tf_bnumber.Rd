@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_tf.R
 \name{get_tf_bnumber}
 \alias{get_tf_bnumber}
-\title{Convert TF protein names into bnumbers}
+\title{Convert TF protein names into gene bnumbers \link{deprecated}}
 \usage{
 get_tf_bnumber(list_tfs)
 }
@@ -13,5 +13,5 @@ get_tf_bnumber(list_tfs)
 A character vector of same size as \code{list_tfs}
 }
 \description{
-Convert TF protein names into bnumbers
+Convert TF protein names into gene bnumbers \link{deprecated}
 }

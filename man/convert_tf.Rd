@@ -4,15 +4,15 @@
 \alias{convert_tf}
 \title{Get TF  names.}
 \usage{
-convert_tf(products, to = "name")
+convert_tf(tfs, to = "name")
 }
 \arguments{
-\item{products}{A character vector}
+\item{tfs}{A character vector}
 
 \item{to}{A character string}
 }
 \value{
-A character vector of same size as \code{products}
+A character vector of same size as \code{tfs}
 }
 \description{
 Get TF  names.

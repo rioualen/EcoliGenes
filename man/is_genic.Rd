@@ -7,12 +7,12 @@
 is_genic(positions, strand)
 }
 \arguments{
-\item{positions}{A numeric vector}
+\item{positions}{A vector of integers}
 
-\item{strand}{A character vector}
+\item{strand}{A character vector of size 1 or same size as \code{positions}}
 }
 \value{
-A vector of logicals of size \code{length(positions)}
+A vector of logicals of same size as \code{positions}
 }
 \description{
 Check if a position or vector of positions are genic

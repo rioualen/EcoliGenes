@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_gene.R
 \name{convert_gene}
 \alias{convert_gene}
-\title{Convert gene names. IDs or else to reference gene symbols or bnumbers}
+\title{Convert gene names, IDs etc to reference gene symbols or bnumbers}
 \usage{
 convert_gene(genes, to = "bnumber")
 }
@@ -15,5 +15,5 @@ convert_gene(genes, to = "bnumber")
 A character vector of same size as \code{genes}
 }
 \description{
-Convert gene names. IDs or else to reference gene symbols or bnumbers
+Convert gene names, IDs etc to reference gene symbols or bnumbers
 }

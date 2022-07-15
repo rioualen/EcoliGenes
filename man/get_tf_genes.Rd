@@ -2,16 +2,13 @@
 % Please edit documentation in R/get_genes.R
 \name{get_tf_genes}
 \alias{get_tf_genes}
-\title{Get TF-coding genes}
+\title{Get TF-coding genes from RegulonDB (does not include putative TFs from other sources; check out get_tfs() functions instead).}
 \usage{
-get_tf_genes(source = "all")
-}
-\arguments{
-\item{source}{Optional, one of c("all", "regulondb")}
+get_tf_genes()
 }
 \value{
 A character vector
 }
 \description{
-Get TF-coding genes
+Get TF-coding genes from RegulonDB (does not include putative TFs from other sources; check out get_tfs() functions instead).
 }

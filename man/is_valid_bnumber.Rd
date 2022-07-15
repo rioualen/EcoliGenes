@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_gene.R
 \name{is_valid_bnumber}
 \alias{is_valid_bnumber}
-\title{Check if genes are valid bnumbers}
+\title{Check if bnumbers are valid}
 \usage{
 is_valid_bnumber(bnum_list)
 }
@@ -10,8 +10,8 @@ is_valid_bnumber(bnum_list)
 \item{bnum_list}{A character vector}
 }
 \value{
-A logical vector
+A logical vector of same size as \code{bnum_list}
 }
 \description{
-Check if genes are valid bnumbers
+Check if bnumbers are valid
 }

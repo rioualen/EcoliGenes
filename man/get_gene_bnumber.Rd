@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_gene.R
 \name{get_gene_bnumber}
 \alias{get_gene_bnumber}
-\title{Convert gene (symbol, ID, or else) to consensus bnumber \link{deprecatd}}
+\title{Convert gene (symbol, ID, or else) to consensus bnumber \link{deprecated}}
 \usage{
 get_gene_bnumber(list_genes)
 }
@@ -13,5 +13,5 @@ get_gene_bnumber(list_genes)
 A character vector of same size as \code{list_genes}
 }
 \description{
-Convert gene (symbol, ID, or else) to consensus bnumber \link{deprecatd}
+Convert gene (symbol, ID, or else) to consensus bnumber \link{deprecated}
 }

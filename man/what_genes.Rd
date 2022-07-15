@@ -7,14 +7,14 @@
 what_genes(start, stop, strand)
 }
 \arguments{
-\item{start}{A numeric vector}
+\item{start}{A numeric vector of size s}
 
-\item{stop}{A numeric vector}
+\item{stop}{A numeric vector of size s}
 
-\item{strand}{A character vector}
+\item{strand}{A character from c("+", "-", "+-")}
 }
 \value{
-A vector of characters of same size as inputs
+A vector of characters of of size s
 }
 \description{
 Get bnumbers from genes entirely comprised in a given interval of coordinates

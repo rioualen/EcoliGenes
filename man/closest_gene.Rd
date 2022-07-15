@@ -2,18 +2,18 @@
 % Please edit documentation in R/test_position.R
 \name{closest_gene}
 \alias{closest_gene}
-\title{Get closest gene bnumber}
+\title{Get closest genes from genomic positions given a strand}
 \usage{
-closest_gene(position, strand = "+-")
+closest_gene(positions, strand = "+-")
 }
 \arguments{
-\item{position}{A numeric vector}
+\item{positions}{A vector of integers}
 
-\item{strand}{A character in c("+", "-", "+-")}
+\item{strand}{A character vector of size 1 or same size as \code{positions}}
 }
 \value{
-A vector of characters of same size as input
+A character vector of same size as \code{positions}
 }
 \description{
-Get closest gene bnumber
+Get closest genes from genomic positions given a strand
 }

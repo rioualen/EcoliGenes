@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_coords.R
 \name{convert_coords}
 \alias{convert_coords}
-\title{Convert coordinates from 96.2 to 96.3}
+\title{Convert genomic coordinates from 96.2 to 96.3}
 \usage{
 convert_coords(coords)
 }
@@ -13,5 +13,5 @@ convert_coords(coords)
 A integer vector of same size as \code{coords}
 }
 \description{
-Convert coordinates from 96.2 to 96.3
+Convert genomic coordinates from 96.2 to 96.3
 }

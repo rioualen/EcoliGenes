@@ -7,10 +7,10 @@
 get_gene_strand(list_genes)
 }
 \arguments{
-\item{list_genes}{A character vector of bnumbers (previously checked/converted)}
+\item{list_genes}{A character vector of valid bnumbers (previously checked/converted with convert_gene(to = "bnumber"))}
 }
 \value{
-A character vector of same size as \code{list_genes}
+A character vector of same size as \code{list_genes} (unknown input genes result in NA)
 }
 \description{
 Get gene strand

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_genes.R
 \name{get_all_genes}
 \alias{get_all_genes}
-\title{Get all genes consensus bnumbers}
+\title{Get all genes as reference bnumbers}
 \usage{
 get_all_genes()
 }
@@ -10,5 +10,5 @@ get_all_genes()
 A character vector of bnumbers
 }
 \description{
-Get all genes consensus bnumbers
+Get all genes as reference bnumbers
 }
