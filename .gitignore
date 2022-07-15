@@ -6,3 +6,4 @@ Generate_master_cache/
 old/
 *.html
 env.r
+inst/local_data/
