@@ -1,43 +1,47 @@
-#' @title Get all genes consensus bnumbers
+#' @title Get all genes as reference bnumbers
 #' @name get_all_genes
-#'
 #' @return A character vector of bnumbers
-#'
 #' @import dplyr
 #' @export
-#'
 #' @examples
-get_all_genes <- function() { ## add opt pseudogenes TF and phantomgene TF ## outpout bnumber or opt symbols?
-	master_gene_table <- read_source_file("genes")
-
-	all_genes <- master_gene_table %>%
-		dplyr::filter(!is.na(Reference_start)|!is.na(Reference_stop)|!is.na(Reference_strand)) %>%
-		dplyr::select(Reference_bnumber)
-
+get_all_genes <- function() {
+	all_genes <- read_source_file("genes")
 	all_genes$Reference_bnumber
 }
 
-#' @title Get TF-coding genes
+#' @title Get TF-coding genes from RegulonDB (does not include putative TFs from other sources; check out get_tfs() functions instead).
 #' @name get_tf_genes
-#'
-#' @param source Optional, one of c("all", "regulondb")
 #' @return A character vector
-#'
 #' @import dplyr
 #' @export
-#'
 #' @examples
-get_tf_genes <- function(source = "all") {
-	master_tf_table <- read_source_file("tfs")
-
-	if (source == "all") {
-		tfs <- master_tf_table$Reference_name
-	} else if (source == "regulondb"){
-		tfs <- master_tf_table %>%
-			dplyr::filter(!is.na(RegulonDB_tf_id))
-		tfs <- tfs$Reference_name
-	} else {
-		stop("Error: 'source' parameter must be one of 'all', 'regulondb' ")
-	}
-	tfs
+get_tf_genes <- function() {
+	tf_genes <- read_source_file("genes") %>%
+		dplyr::filter(!is.na(RegulonDB_tf_id))
+	tf_genes$Reference_bnumber
 }
+
+#' @title Get pseudo genes from RegulonDB
+#' @name get_pseudo_genes
+#' @return A character vector
+#' @import dplyr
+#' @export
+#' @examples
+get_pseudo_genes <- function() {
+	pseudo_genes <- read_source_file("genes") %>%
+		dplyr::filter(RegulonDB_type == "Pseudo Gene")
+	pseudo_genes$Reference_bnumber
+}
+
+#' @title Get phantom genes from RegulonDB
+#' @name get_phantom_genes
+#' @return A character vector
+#' @import dplyr
+#' @export
+#' @examples
+get_phantom_genes <- function() {
+	phantom_genes <- read_source_file("genes") %>%
+		dplyr::filter(RegulonDB_type == "Phantom Gene")
+	phantom_genes$Reference_bnumber
+}
+
