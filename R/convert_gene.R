@@ -1,23 +1,19 @@
-#' @title Convert gene names. IDs or else to reference gene symbols or bnumbers
+#' @title Convert gene names, IDs etc to reference gene symbols or bnumbers
 #' @name convert_gene
-#'
 #' @param genes A character vector
 #' @param to A character string
-#'
 #' @return A character vector of same size as `genes`
-#'
-#' @import tidyverse
+#' @import tidyr
+#' @import dplyr
 #' @export
-#'
 #' @examples
 convert_gene <- function(genes, to = "bnumber") {
-
 	if(!to %in% c("bnumber", "symbol")) {
 		warning("Unknown parameter ", to, ", will default to 'bnumber'", immediate. = T , call. = F)
 		to <- "bnumber"
 	}
 
-	gene_list_by_synonyms <- read_master_gene_file() %>%
+	gene_list_by_synonyms <- read_source_file("genes") %>%
 		tidyr::separate_rows(gene_synonyms, sep = ",") %>%
 		plyr::dlply("gene_synonyms", identity)
 
@@ -35,7 +31,7 @@ convert_gene <- function(genes, to = "bnumber") {
 	mapply(genes, to, FUN = convert)
 }
 
-#' @title Convert gene (symbol, ID, or else) to consensus bnumber [deprecatd]
+#' @title Convert gene (symbol, ID, or else) to consensus bnumber [deprecated]
 #' @name get_gene_bnumber
 #' @param list_genes A character vector
 #' @return A character vector of same size as `list_genes`
@@ -45,7 +41,7 @@ get_gene_bnumber <- function(list_genes) {
 	convert_gene(list_genes, to = "bnumber")
 }
 
-#' @title Convert any name or id to gene symbols [deprecated]
+#' @title Convert any gene name or id to reference gene symbol [deprecated]
 #' @name get_gene_symbol
 #' @param list_genes A character vector
 #' @return A character vector of same size as `list_genes`
