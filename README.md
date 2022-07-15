@@ -12,7 +12,7 @@ In order to overcome these limitations and process datasets containing any infor
 ## Framework
 
 
-<img src="img/ecoligenes_framework.png" alt="EcoliGenes framework" width="600"/>
+<img src="img/ecoligenes_framework.png" alt="EcoliGenes framework" width="800"/>
 
 ### a. Source data
 
