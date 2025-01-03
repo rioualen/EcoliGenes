@@ -42,8 +42,8 @@ Genes reported as symbols or identifiers from any source can be readily converte
 Transcription factors reported as protein names, gene symbols or any other identifiers are converted to their names of reference using convert_tf. The get_tfs functions allow retrieving a list of TF reference names given specific criteria. Then, they can be used to perform boolean tests using test_tf, or retrieve specific attributes of the TF with get_tf_info.
 
 
-## Installation
- 
-## Examples
+## How to cite:
+
+Rioualen C. The EcoliGenes library Solving the never-ending struggle with Escherichia coli K-12 genes [version 1; not peer reviewed]. F1000Research 2022, 11:810 (poster) (https://doi.org/10.7490/f1000research.1119040.1)
 
 
